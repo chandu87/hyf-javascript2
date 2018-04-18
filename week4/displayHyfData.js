@@ -47,6 +47,8 @@ function displayContent(module){
     listItem.textContent = displayList[i] + " : " + module[displayList[i]];
     moduleProp.appendChild(listItem);    
   }
+  let hr = document.createElement('hr');
+  moduleProp.appendChild(hr);
   containerProp.appendChild(moduleProp);
 
 }
