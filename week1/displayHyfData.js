@@ -13,8 +13,12 @@ function accessData(hyfData){
   let curriculumModules = ['HTML-CSS','Node.js','JavaScript1','Git','CommandLine','Project','databases','curriculum','React','masterclass-react-redux'];
   console.log("Third repositary name is -------->>> " + hyfData[2].name);
 
+  let imgHyf = document.querySelector("#hyfLogo");
   let listUl = document.querySelector('#ul-list');
   let containerProp = document.querySelector("#disp-properties");  
+
+  //send avatar to html img for displaying on page
+  imgHyf.src = hyfData[0].owner.avatar_url;
 
   for(let i = 0; i < hyfData.length; i++){
       let exist = moduleExisted(hyfData[i].name);

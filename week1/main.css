@@ -1,3 +1,6 @@
+body{
+    margin-left: 5%;
+}
 .flex-container{
     display: flex;
 }
