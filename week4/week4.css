@@ -1,16 +1,11 @@
 body{
-    margin-left: 5%;
     background: whitesmoke;
 }
 h1{
     color:black;
 }
-.flex-container{
-    display: flex;
-}
+
 #disp-modules, #disp-properties{
-    padding:10px;
-    width:40%;
-    border: 2px solid burlywood;
-    margin:2px;
+    padding:30px;
+    margin:5px;
 }

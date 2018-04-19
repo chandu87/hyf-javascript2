@@ -1,26 +1,61 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>Week 4</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.9/css/all.css" integrity="sha384-5SOiIsAziJl6AWe0HWRKTXlfcSHKmYV4RBF18PPJ173Kzn7jzMyFuTtk8JA7QQG1" crossorigin="anonymous">
+
     <link rel="stylesheet" type="text/css" href="style.css"/>
     <link rel="stylesheet" type="text/css" href="week4.css"/>
 </head>
 <body>
-    <h1>Javascript week 4 <img id="hyfLogo" src = "" alt = "HYF image" width="50px"> </h1>
+        <nav class="navbar navbar-default">
+                <div class="container">
+                  <!-- Brand and toggle get grouped for better mobile display -->
+                  <div class="navbar-header">
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                      <span class="sr-only">Toggle navigation</span>
+                      <span class="icon-bar"></span>
+                      <span class="icon-bar"></span>
+                      <span class="icon-bar"></span>
+                    </button>
+                    <img id="hyfLogo" src = "" alt = "HYF image">
+                    <a class="navbar-brand" href="index.html">
+                            Hack Your Future</a>
+                  </div>
 
-    <div class="flex-container">
-        <div id="disp-modules">
-            <p>Modules</p>
-            <ul id = "ul-list">
-            </ul>
-        </div>
-        <div id="disp-properties">
-            <p>Module Properties</p>
+                  <!-- Collect the nav links, forms, and other content for toggling -->
+                  <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                    <ul class="nav navbar-nav">
+                      <li><a href="index.html"><i class="fas fa-home"></i> Home <span class="sr-only">(current)</span></a></li>
+                      <li class="active"><a href="./week4.html"><i class="fas fa-code"></i> Week 4</a></li>
+                      <li><a href="#"><i class="fas fa-user"></i> About</a></li>
+                    </ul> 
+
+                  </div><!-- /.navbar-collapse -->
+                </div><!-- /.container-fluid -->
+        </nav>
+
+    <div class="container">
+            <h1>
+                Javascript week 4 
+            </h1>
+        <div class="row flex-container">
+            <div class = "col-sm-12 col-lg-5" id="disp-modules">
+                <h2>Modules</h2>
+                <ul id = "ul-list">
+                </ul>
+            </div>
+            <div class = "col-sm-12 col-lg-6" id="disp-properties">
+                <h2>Module Properties</h2>
+            </div>
         </div>
     </div>
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
     <script src = "./carGenerator.js"></script>
     <script src = "./displayHyfData.js"></script>
     

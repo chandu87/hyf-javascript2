@@ -35,4 +35,8 @@ html{
 button a {
     text-decoration: none;
 }
-
+#hyfLogo{
+    float : left;
+    width: 50px;
+    margin: 0px 5px;
+}
