@@ -1,4 +1,5 @@
 
+//retriving data from JSON HYF using techniquies from MDN JSON exmaples
 var requestURL = 'https://api.github.com/orgs/HackYourFuture/repos';
 var request = new XMLHttpRequest();
 request.open('GET', requestURL);
@@ -9,6 +10,7 @@ request.onload = function() {
   accessData(retrivedData);
 }
 
+// function for accessing data which is retrives from JSON hyf
 function accessData(hyfData){
   let curriculumModules = ['HTML-CSS','Node.js','JavaScript1','Git','CommandLine','Project','databases','curriculum','React','masterclass-react-redux'];
   console.log("Third repositary name is -------->>> " + hyfData[2].name);
@@ -27,6 +29,7 @@ function accessData(hyfData){
       }
   }
 
+  //check whether module exists or not
 function moduleExisted(moduleName){
     for(i = 0; i < curriculumModules.length; i++){
         if(moduleName == curriculumModules[i]){
@@ -34,6 +37,7 @@ function moduleExisted(moduleName){
         }
     }
 }
+//display content to html by appending to it
 function displayContent(module){
   let listItem = document.createElement('li');
   listItem.textContent = module.name;
