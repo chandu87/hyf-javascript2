@@ -6,7 +6,7 @@ request.open('GET', requestURL);
 request.responseType = 'json';
 request.send();
 request.onload = function() {
-  let retrivedData = JSON.parse(JSON.stringify(request.response)); 
+  let retrivedData = request.response; 
   accessData(retrivedData);
 }
 
@@ -23,10 +23,10 @@ function accessData(hyfData){
   imgHyf.src = hyfData[0].owner.avatar_url;
 
 
-for(let i = 0; i < hyfData.length; i++){
-  let exist = curriculumModules.includes(hyfData[i].name);  //check each module name includes in curriculum
+for(let module of hyfData){
+  let exist = curriculumModules.includes(module.name);  //check each module name includes in curriculum
   if(exist){
-    displayContent(hyfData[i]);
+    displayContent(module);
   }
 }  
 
