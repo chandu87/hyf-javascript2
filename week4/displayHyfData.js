@@ -22,21 +22,14 @@ function accessData(hyfData){
   //send avatar to html img for displaying on page
   imgHyf.src = hyfData[0].owner.avatar_url;
 
-  for(let i = 0; i < hyfData.length; i++){
-      let exist = moduleExisted(hyfData[i].name);
-      if(exist){
-        displayContent(hyfData[i]); 
-      }
-  }
 
-  //check whether module exists or not
-function moduleExisted(moduleName){
-    for(i = 0; i < curriculumModules.length; i++){
-        if(moduleName == curriculumModules[i]){
-            return true;
-        }
-    }
-}
+for(let i = 0; i < hyfData.length; i++){
+  let exist = curriculumModules.includes(hyfData[i].name);  //check each module name includes in curriculum
+  if(exist){
+    displayContent(hyfData[i]);
+  }
+}  
+
 //display content to html by appending to it
 function displayContent(module){
   let listItem = document.createElement('li');
