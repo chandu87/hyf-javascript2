@@ -1,5 +1,9 @@
 body{
     margin-left: 5%;
+    background: whitesmoke;
+}
+h1{
+    color:black;
 }
 .flex-container{
     display: flex;

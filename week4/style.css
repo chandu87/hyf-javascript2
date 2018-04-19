@@ -1,0 +1,38 @@
+body{
+    background:url(class05.png);
+    background-size:cover;
+    background-position: center;
+
+}
+.question_heading{
+    cursor: pointer;
+    background:rgba(97, 200, 237, 0.541);
+    padding:20px;
+}
+#content{
+    text-align:center;
+    padding-top:25%;
+    text-shadow:0px 4px 3px grey,
+                0px 8px 13px blue,
+                0px 18px 23px yellowgreen;
+}
+hr{
+    border-top:1px solid #f8f8f8;
+    border-bottom: 1px solid rgba(216, 58, 58, 0.2);
+    width: 40%;
+}
+h1{
+    color:whitesmoke;
+    font-weight:700;
+    font-size: 4em;
+}
+h3{
+    color: whitesmoke;
+}
+html{
+    height:100%;
+}
+button a {
+    text-decoration: none;
+}
+
