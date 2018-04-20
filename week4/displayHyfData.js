@@ -18,13 +18,14 @@ function accessData(hyfData){
   //send avatar to html img for displaying on page
   imgHyf.src = hyfData[0].owner.avatar_url;
 
-
-for(let module of hyfData){
-  let exist = curriculumModules.includes(module.name);  //check each module name includes in curriculum
-  if(exist){
-    displayContent(module);
-  }
+hyfDataFiltered = hyfData.filter(isModuleExist); //filtered array of hyfData
+for(let module of hyfDataFiltered){
+  displayContent(module);
 }  
+//check each module name includes in curriculum
+function isModuleExist(mod){
+  return curriculumModules.includes(mod.name);
+  }
 
 //display content to html by appending to it
 function displayContent(module){
