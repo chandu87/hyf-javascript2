@@ -19,9 +19,7 @@ function accessData(hyfData){
   imgHyf.src = hyfData[0].owner.avatar_url;  //send avatar to html img for displaying on page
 
   hyfDataFiltered = hyfData.filter(isModuleExist); //filtered array of hyfData
-  for(let module of hyfDataFiltered){
-    displayContent(module);
-  }  
+  hyfDataFiltered.forEach(displayContent);
 }
 
 //check each module name includes in curriculum
