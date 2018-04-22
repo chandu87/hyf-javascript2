@@ -9,11 +9,9 @@ console.log("Array of cars speed between 30 and 60 ");
 console.log(mediumSpeedCars);
 
 //cars which are not yellow
-let notLightYellowCars = [];
-arrayGeneratedCars.map(checkLightYellowCar);
+let notLightYellowCars = arrayGeneratedCars.filter(function(car){return car.color !== 'lightyellow'}).map(function(car){ return car.make});
+console.log("Array of cars which are not yellow", notLightYellowCars);
 
-console.log("Array of cars which are not yellow");
-console.log(notLightYellowCars);
 
 //change car array so that it can be read by danish person
 let carsWithDanishInfo = arrayGeneratedCars.map(changeLanguage);
@@ -62,11 +60,7 @@ function generateCars(numberOfCars) {
 function checkSpeed(car){
         return car.speed > 30 && car.speed < 60;
     }
-function checkLightYellowCar(car){
-    if(car.color !== 'lightyellow'){
-        notLightYellowCars.push(car.make);
-    }        
-}
+
 function changeLanguage(car){
     return {
         maerke: car.make,
