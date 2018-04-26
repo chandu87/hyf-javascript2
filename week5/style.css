@@ -4,11 +4,7 @@ body{
     background-position: center;
 
 }
-.question_heading{
-    cursor: pointer;
-    background:rgba(97, 200, 237, 0.541);
-    padding:20px;
-}
+
 #content{
     text-align:center;
     padding-top:25%;
