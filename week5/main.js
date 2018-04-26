@@ -80,6 +80,55 @@ function repeatStringNumTimes(str, num) {
     }
     return res;
   }
+// -------------------- step 1.6 -------------------------  
+var Car = function() {
+    this.wheels = 4;
+    this.engines = 1;
+    this.seats = 5;
+  };
+  
+  // Only change code below this line.
+  var MotorBike = function() {
+    this.wheels = 2;
+    this.engines = 1;
+    this.seats = 2;
+  
+  };
+// -------------------- step 1.7 -------------------------
+function multiplyAll(arr) {
+    var product = 1;
+    // Only change code below this line
+    for (var i = 0; i < arr.length; i++){
+      for(var j = 0; j < arr[i].length;j++){
+        product *= arr[i][j];
+      }
+    }
+    // Only change code above this line
+    return product;
+  }
+  
+  // Modify values below to test your code
+  multiplyAll([[1,2],[3,4],[5,6,7]]);
 
+// -------------------- step 1.8 -------------------------
+ 
+// -------------------- step 1.9 -------------------------
   
-  
+var x = 9; 
+function f1(val) { 
+    val = val+1; 
+    return val;
+}
+f1(x);
+console.log(x);
+
+
+var y = { x: 9 };
+function f2(val) {
+    val.x = val.x + 1;
+    return val;
+}
+f2(y);
+console.log(y);  
+// In case of varibles values get passes but when pass objects reference get passed.
+
