@@ -1,5 +1,5 @@
 
-// -------------------- step 1.1 -------------------------
+console.log("-------------------- step 1.1 -------------------------");
 stepOne(10,15,sayThree,sayFive);
 
 function stepOne(startVal, endVal, callbackThree, callbackFive){
@@ -32,7 +32,7 @@ function sayFive(element){
 }
 
 
-// -------------------- step 1.3 -------------------------  
+console.log("-------------------- step 1.3 -------------------------");
 console.log(repeatStringNumTimes("abc", 3));
 function repeatStringNumTimes(str, num) {
     // repeat after me
@@ -47,7 +47,8 @@ function repeatStringNumTimes(str, num) {
     }
     return res;
   }
-// -------------------- step 1.4 -------------------------  
+
+console.log("-------------------- step 1.4 -------------------------");
 console.log(repeatStringNumTimes("abc", 3));
 function repeatStringNumTimes(str, num) {
     // repeat after me
@@ -63,7 +64,7 @@ function repeatStringNumTimes(str, num) {
     }
     return res;
   }
-// -------------------- step 1.5 -------------------------  
+console.log("-------------------- step 1.5 -------------------------");
 console.log(repeatStringNumTimes("abc", 3));
 // Using a For loop
 function repeatStringNumTimes(str, num) {
@@ -80,7 +81,7 @@ function repeatStringNumTimes(str, num) {
     }
     return res;
   }
-// -------------------- step 1.6 -------------------------  
+console.log("-------------------- step 1.6 -------------------------");
 var Car = function() {
     this.wheels = 4;
     this.engines = 1;
@@ -94,7 +95,9 @@ var Car = function() {
     this.seats = 2;
   
   };
-// -------------------- step 1.7 -------------------------
+  console.log("Constructor motorbike is --> " + MotorBike);
+
+console.log("-------------------- step 1.7 -------------------------");
 function multiplyAll(arr) {
     var product = 1;
     // Only change code below this line
@@ -108,7 +111,7 @@ function multiplyAll(arr) {
   }
   
   // Modify values below to test your code
-  multiplyAll([[1,2],[3,4],[5,6,7]]);
+ console.log(multiplyAll([[1,2],[3,4],[5,6,7]]));
 
 // -------------------- step 1.8 -------------------------
  
@@ -130,5 +133,5 @@ function f2(val) {
 }
 f2(y);
 console.log(y);  
-// In case of varibles values get passes but when pass objects reference get passed.
+console.log("In case of varibles values get passes but when pass objects reference get passed.");
 
