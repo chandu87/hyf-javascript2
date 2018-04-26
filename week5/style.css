@@ -36,3 +36,8 @@ button a {
     width: 50px;
     margin: 0px 5px;
 }
+.btn-step3{
+    background: rgba(83, 180, 232, 0.742);
+    color:white;
+    padding : 10px;
+}
