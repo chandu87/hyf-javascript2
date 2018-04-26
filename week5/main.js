@@ -1,5 +1,6 @@
 
-// step 1 
+// -------------------- step 1.1 -------------------------
+stepOne(10,15,sayThree,sayFive);
 
 function stepOne(startVal, endVal, callbackThree, callbackFive){
         let generatedArray = [];
@@ -23,11 +24,62 @@ function stepOne(startVal, endVal, callbackThree, callbackFive){
             }
         });
 }
-stepOne(10,15,sayThree,sayFive);
-
 function sayThree(element){
         console.log(element + " is divided by three ");
 }
 function sayFive(element){
         console.log(element + " is divided by five");
 }
+
+
+// -------------------- step 1.3 -------------------------  
+console.log(repeatStringNumTimes("abc", 3));
+function repeatStringNumTimes(str, num) {
+    // repeat after me
+    var res = "";
+    if(num >0){
+      for(var i=1; i <=num; i++){
+        res +=str;
+      }
+    }
+    else{
+      res = "";
+    }
+    return res;
+  }
+// -------------------- step 1.4 -------------------------  
+console.log(repeatStringNumTimes("abc", 3));
+function repeatStringNumTimes(str, num) {
+    // repeat after me
+    var res = "";
+    if(num >0){
+        while(num>0){
+            res += str;
+            num--;
+        }
+    }
+    else{
+      res = "";
+    }
+    return res;
+  }
+// -------------------- step 1.5 -------------------------  
+console.log(repeatStringNumTimes("abc", 3));
+// Using a For loop
+function repeatStringNumTimes(str, num) {
+    // repeat after me
+    var res = "";
+    if(num >0){
+        do{
+            res += str;
+            num--;
+        }while(num>0)
+    }
+    else{
+      res = "";
+    }
+    return res;
+  }
+
+  
+  
