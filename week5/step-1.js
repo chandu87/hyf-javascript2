@@ -9,26 +9,21 @@ function stepOne(startVal, endVal, callbackThree, callbackFive){
         }
 
         generatedArray.forEach(function(element){
-            if((element % 3 == 0) && (element % 5 == 0)){
-                console.log("--> callback to both functions");
-                callbackThree(element);
-                callbackFive(element);
-            }
-            else if(element % 3 == 0){
+            if(element % 3 == 0){
                 console.log("--> callback to callbackThree function");
                 callbackThree(element);
             }
-            else if(element % 5 == 0){
+            if(element % 5 == 0){
                 console.log("--> callback to callbackFive function");
                 callbackFive(element);
             }
         });
 }
 function sayThree(number){
-        console.log(number + " is divided by three ");
+        console.log(`${number} is divided by three`);
 }
 function sayFive(number){
-        console.log(number + " is divided by five");
+        console.log(`${number} is divided by five`);
 }
 
 
@@ -125,4 +120,5 @@ function f2(val) {
 f2(y);
 console.log(y);  
 console.log("In case of varibles values get passes but when pass objects reference get passed.");
+
 
