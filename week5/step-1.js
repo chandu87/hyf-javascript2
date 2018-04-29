@@ -1,6 +1,6 @@
 
 console.log("-------------------- step 1.1 -------------------------");
-stepOne(10,15,sayThree,sayFive);
+stepOne(10, 15, sayThree, sayFive);
 
 function stepOne(startVal, endVal, callbackThree, callbackFive){
         let generatedArray = [];
@@ -24,11 +24,11 @@ function stepOne(startVal, endVal, callbackThree, callbackFive){
             }
         });
 }
-function sayThree(element){
-        console.log(element + " is divided by three ");
+function sayThree(number){
+        console.log(number + " is divided by three ");
 }
-function sayFive(element){
-        console.log(element + " is divided by five");
+function sayFive(number){
+        console.log(number + " is divided by five");
 }
 
 
@@ -36,14 +36,11 @@ console.log("-------------------- step 1.3 -------------------------");
 console.log(repeatStringNumTimes("abc", 3));
 function repeatStringNumTimes(str, num) {
     // repeat after me
-    var res = "";
+    let res = "";
     if(num >0){
-      for(var i=1; i <=num; i++){
+      for(let i=1; i <=num; i++){
         res +=str;
       }
-    }
-    else{
-      res = "";
     }
     return res;
   }
@@ -52,15 +49,12 @@ console.log("-------------------- step 1.4 -------------------------");
 console.log(repeatStringNumTimes("abc", 3));
 function repeatStringNumTimes(str, num) {
     // repeat after me
-    var res = "";
+    let res = "";
     if(num >0){
         while(num>0){
             res += str;
             num--;
         }
-    }
-    else{
-      res = "";
     }
     return res;
   }
@@ -69,27 +63,24 @@ console.log(repeatStringNumTimes("abc", 3));
 // Using a For loop
 function repeatStringNumTimes(str, num) {
     // repeat after me
-    var res = "";
+    let res = "";
     if(num >0){
         do{
             res += str;
             num--;
         }while(num>0)
     }
-    else{
-      res = "";
-    }
     return res;
   }
 console.log("-------------------- step 1.6 -------------------------");
-var Car = function() {
+let Car = function() {
     this.wheels = 4;
     this.engines = 1;
     this.seats = 5;
   };
   
   // Only change code below this line.
-  var MotorBike = function() {
+  let MotorBike = function() {
     this.wheels = 2;
     this.engines = 1;
     this.seats = 2;
@@ -99,10 +90,10 @@ var Car = function() {
 
 console.log("-------------------- step 1.7 -------------------------");
 function multiplyAll(arr) {
-    var product = 1;
+    let product = 1;
     // Only change code below this line
-    for (var i = 0; i < arr.length; i++){
-      for(var j = 0; j < arr[i].length;j++){
+    for (let i = 0; i < arr.length; i++){
+      for(let j = 0; j < arr[i].length;j++){
         product *= arr[i][j];
       }
     }
@@ -117,7 +108,7 @@ function multiplyAll(arr) {
  
 // -------------------- step 1.9 -------------------------
   
-var x = 9; 
+let x = 9; 
 function f1(val) { 
     val = val+1; 
     return val;
@@ -126,7 +117,7 @@ f1(x);
 console.log(x);
 
 
-var y = { x: 9 };
+let y = { x: 9 };
 function f2(val) {
     val.x = val.x + 1;
     return val;
