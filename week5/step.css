@@ -1,19 +1,18 @@
-body{
-    background: whitesmoke;
+body {
+  background: whitesmoke;
 }
-h1{
-    color:black;
-    padding-bottom: 20px;
+h1 {
+  color: black;
+  padding-bottom: 20px;
 }
 
-.head-line{
-    text-align: center;
-    
+.head-line {
+  text-align: center;
 }
-.btn{
-    margin-bottom: 5px;
-    margin-right:5px;
+.btn {
+  margin-bottom: 5px;
+  margin-right: 5px;
 }
-.input-repo{
-    margin-right:10px;
+.input-repo {
+  margin-right: 10px;
 }
