@@ -36,3 +36,20 @@ li{
     font-size: 1.3em;
     line-height: 3rem;
 }
+.search-container{
+    position: relative;
+}
+.search-container i{
+    position: absolute;
+    left:0;
+    top:8px;
+    padding:9px 18px;
+    color:#aaa;
+    transition:.3s;
+}
+.search-container input{
+    padding-left:50px;
+}  
+.search-container input:focus + i{
+    color:dodgerblue;
+}
