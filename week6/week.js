@@ -1,8 +1,9 @@
 
 const btnGetData = document.querySelector(".btn-get-data");
 const serachRepo = document.querySelector(".search-repo");
+const message = document.querySelector(".message");
 
-showHYFRepos();
+//showHYFRepos();
 btnGetData.addEventListener('click',function(){
     const query = serachRepo.value;
     searchHyfRepos(query);
@@ -15,21 +16,33 @@ function showHYFRepos() {
 
 // Function for retriving searched Repo List from HYF
 function searchHyfRepos(searchText){
-    const repoSearchUrl = 'https://api.github.com/search/repositories?q=user:HackYourFuture+' + searchText;
-    getAjaxData(repoSearchUrl, function(searchedData){
-        displayData(searchedData.items);
-    });
+    if(searchText.length > 0){
+        const repoSearchUrl = 'https://api.github.com/search/repositories?q=user:HackYourFuture+' + searchText;
+        getAjaxData(repoSearchUrl, function(searchedData){
+            displayData(searchedData.items);
+        });
+    }
+    else{
+        message.textContent = "Please Enter text in Input field and Click the button";
+    }
+
+
 }
 
 // Function to display given array data to a unordered List
 function displayData(data){
+    if(data.length > 0){
     const ulList = document.querySelector(".ul-list");
     ulList.innerHTML = "";
     data.forEach(element => {
         const liItem = document.createElement('li');
         liItem.innerHTML = `<a href="${element.url}">${element.name}</a>`;
         ulList.appendChild(liItem);
-    });
+        });
+    }
+    else{
+        message.textContent = "There are no matched Results. Try again!!"
+    }
 }
 
 function getAjaxData(url, callback) {
