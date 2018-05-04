@@ -53,3 +53,13 @@ li{
 .search-container input:focus + i{
     color:dodgerblue;
 }
+.contributors-container button{
+    width: 30%;
+    height: 4rem;
+    margin-right: 4px;
+    border: 2px solid rgba(170, 170, 170, 0.5);
+    /* background: dodgerblue; */
+}
+.contributors-container i {
+    margin-right: 5px;
+}

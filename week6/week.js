@@ -50,6 +50,16 @@ function setupEventListeners(element){
         const repoName = document.createElement('h2');
         repoName.innerHTML = `Repository Name: <a href="${element.url}">${element.name}</a>`;
         contributorsContainer.appendChild(repoName);
+        const btnWatchers = document.createElement("button");
+        btnWatchers.innerHTML = `<i class="fas fa-eye"></i> Watchers ${element.watchers}`;
+        contributorsContainer.appendChild(btnWatchers);
+        const btnStars = document.createElement("button");
+        btnStars.innerHTML = `<i class="fas fa-star"></i> Stars ${element.stargazers_count}`;
+        contributorsContainer.appendChild(btnStars);
+        const btnForks = document.createElement("button");
+        btnForks.innerHTML = `<i class="fas fa-code-branch"></i> Forks ${element.forks}`;
+        contributorsContainer.appendChild(btnForks);
+
         const contributorHeader = document.createElement('h4');
         contributorHeader.innerHTML = "Contributors";
         contributorsContainer.appendChild(contributorHeader);
@@ -60,7 +70,7 @@ function setupEventListeners(element){
             contributorsContainer.appendChild(contributorsList);
             contributorsData.forEach((contributor)=>{
                 const contributorListItem = document.createElement('li');
-                contributorListItem.innerHTML = contributor.login;
+                contributorListItem.innerHTML = `<a href="${contributor.url}">${contributor.login}</a>`;
                 contributorsList.appendChild(contributorListItem);
                 const img = document.createElement('img');
                 img.src = contributor.avatar_url;
