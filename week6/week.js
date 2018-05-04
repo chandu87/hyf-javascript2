@@ -4,48 +4,32 @@ const serachRepo = document.querySelector(".search-repo");
 
 showHYFRepos();
 btnGetData.addEventListener('click',function(){
-   
     const query = serachRepo.value;
     searchHyfRepos(query);
 });
-function fetchJSONData(url, callbackFn) {
-    const xhr = new XMLHttpRequest();
-    xhr.addEventListener("load", function() {
-      console.log("Data loaded.");
-      const data = JSON.parse(xhr.responseText);
-      callbackFn(data);
-    });
-    xhr.open("GET", url);
-    xhr.send();
-  }
-  function showHYFRepos() {
-    fetchJSONData("https://api.github.com/orgs/HackYourFuture/repos", function(hyfRepoData){
-    const ulList = document.querySelector(".ul-list");
-    ulList.innerHTML = "";
-    hyfRepoData.forEach(element => {
-        const liItem = document.createElement('li');
-        liItem.innerHTML = element.name;
-        ulList.appendChild(liItem);
-    });
 
+// Function for retrieving data from HYF Repos
+function showHYFRepos() {
+    getAjaxData("https://api.github.com/orgs/HackYourFuture/repos", displayData);
+}
+
+// Function for retriving searched Repo List from HYF
+function searchHyfRepos(searchText){
+    const repoSearchUrl = 'https://api.github.com/search/repositories?q=user:HackYourFuture+' + searchText;
+    getAjaxData(repoSearchUrl, function(searchedData){
+        displayData(searchedData.items);
     });
 }
 
-function searchHyfRepos(searchText){
-
-const repoSearchUrl = 'https://api.github.com/search/repositories?q=user:HackYourFuture+' + searchText;
-
-getAjaxData(repoSearchUrl,function(searchedRepoData){
-
+// Function to display given array data to a unordered List
+function displayData(data){
     const ulList = document.querySelector(".ul-list");
     ulList.innerHTML = "";
-    searchedRepoData.items.forEach(element => {
+    data.forEach(element => {
         const liItem = document.createElement('li');
         liItem.innerHTML = `<a href="${element.url}">${element.name}</a>`;
         ulList.appendChild(liItem);
     });
-});
-
 }
 
 function getAjaxData(url, callback) {
