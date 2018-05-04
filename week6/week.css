@@ -5,7 +5,17 @@ h1{
     color:black;
 }
 
-#disp-modules, #disp-properties{
-    padding:30px;
-    margin:5px;
+.search-repo{
+    margin-right : 20px;
+}
+.contributors-container{
+    margin-left: 20px;
+}
+.contributors-container img{
+    width: 200px;
+    margin-right: 10px;
+
+}
+li{
+    cursor: pointer;
 }
