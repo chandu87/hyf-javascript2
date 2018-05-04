@@ -50,15 +50,9 @@ function setupEventListeners(element){
         const repoName = document.createElement('h2');
         repoName.innerHTML = `Repository Name: <a href="${element.url}">${element.name}</a>`;
         contributorsContainer.appendChild(repoName);
-        const btnWatchers = document.createElement("button");
-        btnWatchers.innerHTML = `<i class="fas fa-eye"></i> Watchers ${element.watchers}`;
-        contributorsContainer.appendChild(btnWatchers);
-        const btnStars = document.createElement("button");
-        btnStars.innerHTML = `<i class="fas fa-star"></i> Stars ${element.stargazers_count}`;
-        contributorsContainer.appendChild(btnStars);
-        const btnForks = document.createElement("button");
-        btnForks.innerHTML = `<i class="fas fa-code-branch"></i> Forks ${element.forks}`;
-        contributorsContainer.appendChild(btnForks);
+        displayButton('eye', 'Watchers', element.watchers);
+        displayButton('star', 'Stars', element.stargazers_count);
+        displayButton('code-branch', 'Forks', element.forks);
 
         const contributorHeader = document.createElement('h4');
         contributorHeader.innerHTML = "Contributors";
@@ -80,6 +74,11 @@ function setupEventListeners(element){
         });
     });
     ulList.appendChild(liItem);
+}
+function displayButton(btnIcon, btnName, count){  // Display button for the Given Input
+    const btn = document.createElement("button");
+    btn.innerHTML = `<i class="fas fa-${btnIcon}"></i> ${btnName} ${count}`;
+    contributorsContainer.appendChild(btn);
 }
 function displayError(error){
     message.innerHTML = error;
