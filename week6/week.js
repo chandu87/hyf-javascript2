@@ -2,9 +2,13 @@
 const btnGetData = document.querySelector(".btn-get-data");
 const serachRepo = document.querySelector(".search-repo");
 const message = document.querySelector(".message");
+const ulList = document.querySelector(".ul-list");
+const contributorsContainer = document.querySelector(".contributors-container");    
 
-//showHYFRepos();
-btnGetData.addEventListener('click',function(){
+
+//showHYFRepos();    //function call to display HYF repos
+
+btnGetData.addEventListener('click',function(){   // Event listener for Search button
     const query = serachRepo.value;
     searchHyfRepos(query);
 });
@@ -23,55 +27,52 @@ function searchHyfRepos(searchText){
         }, displayError);
     }
     else{
-        message.textContent = "We could not perform this search. Search text is required when searching. Were you searching for something else.";
+        message.innerHTML = `<i class="fas fa-search"></i><p>We could not perform this search. Search text is required when searching. Were you searching for something else</p>`;
     }
-
-
 }
 
 // Function to display given array data to a unordered List
 function displayData(data){
     if(data.length > 0){
-    const ulList = document.querySelector(".ul-list");
-    const contributorsContainer = document.querySelector(".contributors-container");    
     ulList.innerHTML = "";
-
-    data.forEach(element => {
-        const liItem = document.createElement('li');
-        liItem.innerHTML = `<a>${element.name}</a>`;
-        liItem.addEventListener('click',function(){
-            contributorsContainer.innerHTML = "";
-            const repoName = document.createElement('h2');
-            repoName.innerHTML = `Repository Name: <a href="${element.url}">${element.name}</a>`;
-            contributorsContainer.appendChild(repoName);
-            const contributorHeader = document.createElement('h4');
-            contributorHeader.innerHTML = "Contributors";
-            contributorsContainer.appendChild(contributorHeader);
-
-            getAjaxData(element.contributors_url,function(contributorsData){
-                const contributorsList = document.createElement('ul');
-                contributorsList.innerHTML = "";
-                contributorsContainer.appendChild(contributorsList);
-                contributorsData.forEach((contributor)=>{
-                    const contributorListItem = document.createElement('li');
-                    contributorListItem.innerHTML = contributor.login;
-                    contributorsList.appendChild(contributorListItem);
-                    const img = document.createElement('img');
-                    img.src = contributor.avatar_url;
-                    contributorsList.appendChild(img);
-
-                });
-            });
-        });
-        ulList.appendChild(liItem);
-        });
+    message.innerHTML = "";
+    data.forEach(setupEventListeners);
     }
     else{
-        message.textContent = "There are no matched Results. Try again!!"
+        message.innerHTML = `<i class="fas fa-search"></i><p>There are no matched Results. Were you searching for something else!</p>`;
     }
 }
+function setupEventListeners(element){
+    const liItem = document.createElement('li');
+    liItem.innerHTML = `<a>${element.name}</a>`;
+    liItem.addEventListener('click',function(){
+        contributorsContainer.innerHTML = "";
+        const repoName = document.createElement('h2');
+        repoName.innerHTML = `Repository Name: <a href="${element.url}">${element.name}</a>`;
+        contributorsContainer.appendChild(repoName);
+        const contributorHeader = document.createElement('h4');
+        contributorHeader.innerHTML = "Contributors";
+        contributorsContainer.appendChild(contributorHeader);
+
+        getAjaxData(element.contributors_url,function(contributorsData){
+            const contributorsList = document.createElement('ul');
+            contributorsList.innerHTML = "";
+            contributorsContainer.appendChild(contributorsList);
+            contributorsData.forEach((contributor)=>{
+                const contributorListItem = document.createElement('li');
+                contributorListItem.innerHTML = contributor.login;
+                contributorsList.appendChild(contributorListItem);
+                const img = document.createElement('img');
+                img.src = contributor.avatar_url;
+                contributorsList.appendChild(img);
+
+            });
+        });
+    });
+    ulList.appendChild(liItem);
+}
 function displayError(error){
-    message.textContent = error;
+    message.innerHTML = error;
 }
 
 // function for getting data with given URL
