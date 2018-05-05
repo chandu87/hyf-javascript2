@@ -48,7 +48,7 @@ function setupEventListeners(element){
     liItem.addEventListener('click',function(){
         contributorsContainer.innerHTML = "";
         const repoName = document.createElement('h2');
-        repoName.innerHTML = `Repository Name: <a href="${element.url} target="_blank"">${element.name}</a>`;
+        repoName.innerHTML = `Repository Name: <a href="${element.url}" target="_blank">${element.name}</a>`;
         contributorsContainer.appendChild(repoName);
         displayButton('eye', 'Watchers', element.watchers);
         displayButton('star', 'Stars', element.stargazers_count);
