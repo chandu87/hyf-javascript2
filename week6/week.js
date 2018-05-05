@@ -1,122 +1,138 @@
-
 const btnGetData = document.querySelector(".btn-get-data");
 const serachRepo = document.querySelector(".search-repo");
 const message = document.querySelector(".message");
 const ulList = document.querySelector(".ul-list");
-const contributorsContainer = document.querySelector(".contributors-container");    
-
+const contributorsContainer = document.querySelector(".contributors-container");
 
 //showHYFRepos();    //function call to display HYF repos
 
-btnGetData.addEventListener('click',function(){   // Event listener for Search button
-    const query = serachRepo.value;
-    searchHyfRepos(query);
+btnGetData.addEventListener("click", function() {
+  // Event listener for Search button
+  const query = serachRepo.value;
+  searchHyfRepos(query);
 });
 
 // Function for retrieving ALL HYF Repos
 function showHYFRepos() {
-    getAjaxData("https://api.github.com/orgs/HackYourFuture/repos", displayData, displayError);
+  getAjaxData(
+    "https://api.github.com/orgs/HackYourFuture/repos",
+    displayData,
+    displayError
+  );
 }
 
 // Function for retriving searched Repo List from HYF
-function searchHyfRepos(searchText){
-    if(searchText.length > 0){
-        const repoSearchUrl = 'https://api.github.com/search/repositories?q=user:HackYourFuture+' + searchText;
-        getAjaxData(repoSearchUrl, function(searchedData){
-            displayData(searchedData.items);
-        }, displayError);
-    }
-    else{
-        message.innerHTML = `<i class="fas fa-search"></i><p>We could not perform this search. Search text is required when searching. Were you searching for something else</p>`;
-    }
+function searchHyfRepos(searchText) {
+  if (searchText.length > 0) {
+    const repoSearchUrl =
+      "https://api.github.com/search/repositories?q=user:HackYourFuture+" +
+      searchText;
+    getAjaxData(
+      repoSearchUrl,
+      function(searchedData) {
+        displayData(searchedData.items);
+      },
+      displayError
+    );
+  } else {
+    message.innerHTML = `<i class="fas fa-search"></i><p>We could not perform this search. Search text is required when searching. Were you searching for something else</p>`;
+    ulList.innerHTML = "";
+    contributorsContainer.innerHTML = "";
+  }
 }
 
 // Function to display given array data to a unordered List
-function displayData(data){
-    if(data.length > 0){
+function displayData(data) {
     ulList.innerHTML = "";
+    contributorsContainer.innerHTML = "";
+  if (data.length > 0) {
     message.innerHTML = "";
     data.forEach(setupEventListeners);
-    }
-    else{
-        message.innerHTML = `<i class="fas fa-search"></i><p>There are no matched Results. Were you searching for something else!</p>`;
-    }
+  } else {
+    message.innerHTML = `<i class="fas fa-search"></i><p>There are no matched Results. Were you searching for something else!</p>`;
+  }
 }
-function setupEventListeners(element){
-    const liItem = document.createElement('li');
-    liItem.innerHTML = `<a>${element.name}</a>`;
-    liItem.addEventListener('click',function(){
-        contributorsContainer.innerHTML = "";
-        const repoName = document.createElement('h2');
-        repoName.innerHTML = `Repository Name: <a href="${element.url}" target="_blank">${element.name}</a>`;
-        contributorsContainer.appendChild(repoName);
-        displayButton('eye', 'Watchers', element.watchers);
-        displayButton('star', 'Stars', element.stargazers_count);
-        displayButton('code-branch', 'Forks', element.forks);
+function setupEventListeners(element) {
+  const liItem = document.createElement("li");
+  liItem.innerHTML = `<a>${element.name}</a>`;
+  liItem.addEventListener("click", function() {
+    contributorsContainer.innerHTML = "";
+    const repoName = document.createElement("h2");
+    repoName.innerHTML = `Repository Name: <a href="${
+      element.url
+    }" target="_blank">${element.name}</a>`;
+    contributorsContainer.appendChild(repoName);
+    displayButton("eye", "Watchers", element.watchers);
+    displayButton("star", "Stars", element.stargazers_count);
+    displayButton("code-branch", "Forks", element.forks);
 
-        const contributorHeader = document.createElement('h4');
-        contributorHeader.innerHTML = "Contributors";
-        contributorsContainer.appendChild(contributorHeader);
+    const contributorHeader = document.createElement("h4");
+    contributorHeader.innerHTML = "Contributors";
+    contributorsContainer.appendChild(contributorHeader);
 
-        getAjaxData(element.contributors_url,function(contributorsData){
-            contributorsData.forEach((contributor)=>{
-                const cardContainer = document.createElement('div');
-                cardContainer.classList.add("card");
-                const imgCard = document.createElement('img');
-                imgCard.src = contributor.avatar_url;
-                cardContainer.appendChild(imgCard);
-                const cardInfoContainer = document.createElement('div');
-                cardContainer.appendChild(cardInfoContainer);
-                cardInfoContainer.innerHTML = `<h4><a href="${contributor.url}" target="_blank">${contributor.login}</h4><p>Contributions: ${contributor.contributions} & ID: ${contributor.id}</p>`;
-                contributorsContainer.appendChild(cardContainer);
-            });
-        });
+    getAjaxData(element.contributors_url, function(contributorsData) {
+      contributorsData.forEach(contributor => {
+        const cardContainer = document.createElement("div");
+        cardContainer.classList.add("card");
+        const imgCard = document.createElement("img");
+        imgCard.src = contributor.avatar_url;
+        cardContainer.appendChild(imgCard);
+        const cardInfoContainer = document.createElement("div");
+        cardContainer.appendChild(cardInfoContainer);
+        cardInfoContainer.innerHTML = `<h4><a href="${
+          contributor.url
+        }" target="_blank">${contributor.login}</h4><p>Contributions: ${
+          contributor.contributions
+        } & ID: ${contributor.id}</p>`;
+        contributorsContainer.appendChild(cardContainer);
+      });
     });
-    ulList.appendChild(liItem);
+  });
+  ulList.appendChild(liItem);
 }
-function displayButton(btnIcon, btnName, count){  // Display button for the Given Input
-    const btn = document.createElement("button");
-    btn.innerHTML = `<i class="fas fa-${btnIcon}"></i> ${btnName} ${count}`;
-    contributorsContainer.appendChild(btn);
+function displayButton(btnIcon, btnName, count) {
+  // Display button for the Given Input
+  const btn = document.createElement("button");
+  btn.innerHTML = `<i class="fas fa-${btnIcon}"></i> ${btnName} ${count}`;
+  contributorsContainer.appendChild(btn);
 }
-function displayError(error){
-    message.innerHTML = error;
+function displayError(error) {
+  message.innerHTML = error;
 }
 
 // function for getting data with given URL
 function getAjaxData(url, successCallback, failureCallback) {
-    // Create new ajax call with the js function called XMLHttpRequest
-    const request = new XMLHttpRequest();
-    request.addEventListener('load', function () {
-        // This in here is our callback function
-        // Check our server responsecode, 200 means ok, success: https://en.wikipedia.org/wiki/List_of_HTTP_status_codes 
-        if (this.status === 200) {
-            successCallback(JSON.parse(request.responseText));
-        } else {
-            failureCallback('Something is probably wrong with the url');
-        }
-    });
+  // Create new ajax call with the js function called XMLHttpRequest
+  const request = new XMLHttpRequest();
+  request.addEventListener("load", function() {
+    // This in here is our callback function
+    // Check our server responsecode, 200 means ok, success: https://en.wikipedia.org/wiki/List_of_HTTP_status_codes
+    if (this.status === 200) {
+      successCallback(JSON.parse(request.responseText));
+    } else {
+      failureCallback("Something is probably wrong with the url");
+    }
+  });
 
-    request.addEventListener('error', function () {
-        failureCallback('Server error, Failed to load');
-    });
+  request.addEventListener("error", function() {
+    failureCallback("Server error, Failed to load");
+  });
 
-    // initializes a request with an http method
-    request.open("GET", url);
-    // Sends the request 
-    request.send();
+  // initializes a request with an http method
+  request.open("GET", url);
+  // Sends the request
+  request.send();
 }
-
 
 //------------------------- Bonus task ------------------------
-function scanDuplicates(array){
-    let newArray = [];
-    array.forEach(element =>{
-        if(!newArray.includes(element)){
-            newArray.push(element);
-       }
-    });
-    return newArray;
+function scanDuplicates(array) {
+  let newArray = [];
+  array.forEach(element => {
+    if (!newArray.includes(element)) {
+      newArray.push(element);
+    }
+  });
+  return newArray;
 }
-const testArray = ['a', 'b', 'c', 'd', 'a', 'e', 'f', 'c','a','b','c',"a"]; 
+const testArray = ["a", "b", "c", "d", "a", "e", "f", "c", "a", "b", "c", "a"];
 console.log(scanDuplicates(testArray));
