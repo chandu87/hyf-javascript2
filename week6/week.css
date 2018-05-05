@@ -1,79 +1,75 @@
-body{
-    background: whitesmoke;
+body {
+  background: whitesmoke;
 }
-h1{
-    color:black;
+h1 {
+  color: black;
 }
 
-.search-repo{
-    margin-right : 20px;
+.search-repo {
+  margin-right: 20px;
 }
-.contributors-container{
-    margin-left: 20px;
+.contributors-container {
+  margin-left: 20px;
 }
-.contributors-container img{
-    width: 180px;
+.contributors-container img {
+  width: 180px;
+}
+li {
+  cursor: pointer;
+}
+.contributors-container li {
+  text-transform: uppercase;
+  font-size: 1.2em;
+}
+.message {
+  font-size: 1.5em;
+  color: rgb(69, 61, 61);
 
-
+  padding: 30px;
+  text-align: center;
+  letter-spacing: 1px;
 }
-li{
-    cursor: pointer;
+.ul-list {
+  font-size: 1.3em;
+  line-height: 3rem;
 }
-.contributors-container li{
-    text-transform: uppercase;
-    font-size:1.2em;
+.search-container {
+  position: relative;
 }
-.message{
-    font-size: 1.5em;
-    color:rgb(69, 61, 61);
-
-    padding:30px;
-    text-align: center;
-    letter-spacing: 1px;
-
+.search-container i {
+  position: absolute;
+  left: 0;
+  top: 8px;
+  padding: 9px 18px;
+  color: #aaa;
+  transition: 0.3s;
 }
-.ul-list{
-    font-size: 1.3em;
-    line-height: 3rem;
+.search-container input {
+  padding-left: 50px;
 }
-.search-container{
-    position: relative;
+.search-container input:focus + i {
+  color: dodgerblue;
 }
-.search-container i{
-    position: absolute;
-    left:0;
-    top:8px;
-    padding:9px 18px;
-    color:#aaa;
-    transition:.3s;
-}
-.search-container input{
-    padding-left:50px;
-}  
-.search-container input:focus + i{
-    color:dodgerblue;
-}
-.contributors-container button{
-    width: 200px;
-    height: 4rem;
-    margin-right: 4px;
-    border: 2px solid rgba(170, 170, 170, 0.5);
-    /* background: dodgerblue; */
+.contributors-container button {
+  width: 200px;
+  height: 4rem;
+  margin-right: 4px;
+  border: 2px solid rgba(170, 170, 170, 0.5);
 }
 .contributors-container i {
-    margin-right: 5px;
+  margin-right: 5px;
 }
 .card {
-    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
-    transition: 0.3s;
-    width: 200px;
-    height:280px;
-    padding: 9px 9px;
-    margin-bottom:5px;
-    margin-right:4px;
-    float:left;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  transition: 0.3s;
+  width: 200px;
+  height: 280px;
+  padding: 9px 9px;
+  margin-bottom: 5px;
+  margin-right: 4px;
+  float: left;
 }
 
 .card:hover {
-    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.7);
+  box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.7);
 }

@@ -52,6 +52,7 @@ function displayData(data) {
     message.innerHTML = `<i class="fas fa-search"></i><p>There are no matched Results. Were you searching for something else!</p>`;
   }
 }
+// Function for setting up event listeners for Each item
 function setupEventListeners(element) {
   const liItem = document.createElement("li");
   liItem.innerHTML = `<a>${element.name}</a>`;

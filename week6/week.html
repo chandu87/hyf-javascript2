@@ -1,73 +1,97 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>HYF Week-4</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.9/css/all.css" integrity="sha384-5SOiIsAziJl6AWe0HWRKTXlfcSHKmYV4RBF18PPJ173Kzn7jzMyFuTtk8JA7QQG1" crossorigin="anonymous">
-    <link rel="icon" type="image/png" href="images/h-favicon.png"/>
-    <link rel="stylesheet" type="text/css" href="style.css"/>
-    <link rel="stylesheet" type="text/css" href="week.css"/>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
+        crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.9/css/all.css" integrity="sha384-5SOiIsAziJl6AWe0HWRKTXlfcSHKmYV4RBF18PPJ173Kzn7jzMyFuTtk8JA7QQG1"
+        crossorigin="anonymous">
+    <link rel="icon" type="image/png" href="images/h-favicon.png" />
+    <link rel="stylesheet" type="text/css" href="style.css" />
+    <link rel="stylesheet" type="text/css" href="week.css" />
 </head>
+
 <body>
-        <nav class="navbar navbar-default">
-                <div class="container">
-                  <!-- Brand and toggle get grouped for better mobile display -->
-                  <div class="navbar-header">
-                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
-                      <span class="sr-only">Toggle navigation</span>
-                      <span class="icon-bar"></span>
-                      <span class="icon-bar"></span>
-                      <span class="icon-bar"></span>
-                    </button>
-                    <img id="hyfLogo" src = "https://avatars2.githubusercontent.com/u/20858568?v=4" alt = "HYF image">
-                    <a class="navbar-brand" href="index.html">
-                            Hack Your Future</a>
-                  </div>
+    <nav class="navbar navbar-default">
+        <div class="container">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1"
+                    aria-expanded="false">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <img id="hyfLogo" src="https://avatars2.githubusercontent.com/u/20858568?v=4" alt="HYF image">
+                <a class="navbar-brand" href="index.html">
+                    Hack Your Future</a>
+            </div>
 
-                  <!-- Collect the nav links, forms, and other content for toggling -->
-                  <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-                    <ul class="nav navbar-nav">
-                      <li><a href="index.html"><i class="fas fa-home"></i> Home <span class="sr-only">(current)</span></a></li>
-                      <li class="active"><a href="./week.html"><i class="fas fa-code"></i> Week </a></li>
-                      <li><a href="#"><i class="fas fa-user"></i> About</a></li>
-                    </ul> 
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav">
+                    <li>
+                        <a href="index.html">
+                            <i class="fas fa-home"></i> Home
+                            <span class="sr-only">(current)</span>
+                        </a>
+                    </li>
+                    <li class="active">
+                        <a href="./week.html">
+                            <i class="fas fa-code"></i> Week </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <i class="fas fa-user"></i> About</a>
+                    </li>
+                </ul>
 
-                  </div><!-- /.navbar-collapse -->
-                </div><!-- /.container-fluid -->
-        </nav>
+            </div>
+            <!-- /.navbar-collapse -->
+        </div>
+        <!-- /.container-fluid -->
+    </nav>
 
-        <!-- Main container start -->
+    <!-- Main container start -->
     <div class="container">
         <h1>
-            Javascript week  
+            Javascript week 6
         </h1>
+        <p>Searching Hackyourfuture Repositories</p>
         <div class="row search-container">
+            <!-- Container for Search input and button-->
             <input class="col-lg-6 input-lg search-repo" placeholder="Enter search text here">
             <i class="fas fa-search fa-lg fa-fw"></i>
             <button class="col-lg-3 btn btn-lg btn-primary btn-get-data">
                 Click Me!
-            </button>       
+            </button>
         </div>
+        <!-- Serach container ends-->
         <div class="col-lg-9 message">
+            <!-- Display error message here-->
         </div>
         <div class="row">
-          <div class="col-lg-4">
-              <ul class="ul-list">
-
+            <!-- Display searched data-->
+            <div class="col-lg-4">
+                <!-- Display Repo list-->
+                <ul class="ul-list">
                 </ul>
-          </div>
-          <div class="contributors-container col-lg-7 col-sm-11">
-              
             </div>
-        </div>  
-
-
-    </div>     <!-- main container ends -->
+            <div class="contributors-container col-lg-7 col-sm-11">
+                <!-- Display contributors details-->
+            </div>
+        </div>
+    </div>
+    <!-- main container ends -->
     <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
+        crossorigin="anonymous"></script>
     <script src="week.js"></script>
 </body>
+
 </html>
