@@ -12,8 +12,8 @@ h1{
     margin-left: 20px;
 }
 .contributors-container img{
-    width: 200px;
-    margin-right: 10px;
+    width: 180px;
+
 
 }
 li{
@@ -54,7 +54,7 @@ li{
     color:dodgerblue;
 }
 .contributors-container button{
-    width: 30%;
+    width: 200px;
     height: 4rem;
     margin-right: 4px;
     border: 2px solid rgba(170, 170, 170, 0.5);
@@ -62,4 +62,18 @@ li{
 }
 .contributors-container i {
     margin-right: 5px;
+}
+.card {
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    transition: 0.3s;
+    width: 200px;
+    height:280px;
+    padding: 9px 9px;
+    margin-bottom:5px;
+    margin-right:4px;
+    float:left;
+}
+
+.card:hover {
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.7);
 }

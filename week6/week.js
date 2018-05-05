@@ -48,7 +48,7 @@ function setupEventListeners(element){
     liItem.addEventListener('click',function(){
         contributorsContainer.innerHTML = "";
         const repoName = document.createElement('h2');
-        repoName.innerHTML = `Repository Name: <a href="${element.url}">${element.name}</a>`;
+        repoName.innerHTML = `Repository Name: <a href="${element.url} target="_blank"">${element.name}</a>`;
         contributorsContainer.appendChild(repoName);
         displayButton('eye', 'Watchers', element.watchers);
         displayButton('star', 'Stars', element.stargazers_count);
@@ -59,17 +59,16 @@ function setupEventListeners(element){
         contributorsContainer.appendChild(contributorHeader);
 
         getAjaxData(element.contributors_url,function(contributorsData){
-            const contributorsList = document.createElement('ul');
-            contributorsList.innerHTML = "";
-            contributorsContainer.appendChild(contributorsList);
             contributorsData.forEach((contributor)=>{
-                const contributorListItem = document.createElement('li');
-                contributorListItem.innerHTML = `<a href="${contributor.url}">${contributor.login}</a>`;
-                contributorsList.appendChild(contributorListItem);
-                const img = document.createElement('img');
-                img.src = contributor.avatar_url;
-                contributorsList.appendChild(img);
-
+                const cardContainer = document.createElement('div');
+                cardContainer.classList.add("card");
+                const imgCard = document.createElement('img');
+                imgCard.src = contributor.avatar_url;
+                cardContainer.appendChild(imgCard);
+                const cardInfoContainer = document.createElement('div');
+                cardContainer.appendChild(cardInfoContainer);
+                cardInfoContainer.innerHTML = `<h4><a href="${contributor.url}" target="_blank">${contributor.login}</h4><p>Contributions: ${contributor.contributions} & ID: ${contributor.id}</p>`;
+                contributorsContainer.appendChild(cardContainer);
             });
         });
     });
