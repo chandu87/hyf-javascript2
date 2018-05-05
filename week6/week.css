@@ -73,3 +73,29 @@ li {
 .card:hover {
   box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.7);
 }
+.site-footer {
+  background: rgba(91, 85, 85, 0.619);
+  right: 0;
+  bottom: 0;
+  left: 0;
+  padding: 1rem;
+  clear: both;
+  color: white;
+}
+.site-footer li {
+  list-style: none;
+  text-transform: uppercase;
+}
+.site-footer li a {
+  color: white;
+}
+.main-container {
+  height: 80vh;
+
+}
+.site-footer .container {
+  display: flex;
+}
+.footer-nav {
+  width: 30%;
+}
