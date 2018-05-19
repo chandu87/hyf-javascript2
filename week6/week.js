@@ -43,11 +43,36 @@ function searchHyfRepos(searchText) {
 
 // Function to display given array data to a unordered List
 function displayData(data) {
-    ulList.innerHTML = "";
-    contributorsContainer.innerHTML = "";
+  ulList.innerHTML = "";
+  contributorsContainer.innerHTML = "";
   if (data.length > 0) {
     message.innerHTML = "";
     data.forEach(setupEventListeners);
+    // console.log(data);
+
+    const maxForks = data.reduce(
+      (prev, current) => prev.forks > current.forks ? prev : current
+    );
+    console.log("Maximum forked repository", maxForks);
+
+    const minForks = data.reduce(
+      (prev, current) => prev.forks < current.forks ? prev : current
+    );
+    console.log("Minimum forked repository", minForks);
+
+    const maxWatchers = data.reduce(
+      (prev, current) => prev.watchers > current.watchers ? prev : current
+    );
+    console.log("Maximum Watched Repo", maxWatchers);
+
+    const minWatchers = data.reduce(
+      (prev, current) => prev.watchers < current.watchers ? prev : current
+    );
+    console.log("Minimum Watched Repo", minWatchers);
+
+    const forksTotal = data.map((repo)=>repo.forks).reduce((prev, current) => prev + current);
+    console.log("Total number of Forks", forksTotal);
+
   } else {
     message.innerHTML = `<i class="fas fa-search"></i><p>There are no matched Results. Were you searching for something else!</p>`;
   }
