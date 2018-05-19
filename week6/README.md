@@ -1,5 +1,7 @@
 # Synopsis
 This Project is about accessing HackYourFuture github repositories with user's searched keyword and Displaying them on the page. Users can click on each repository to see number of contributors with their images and they can see number of forks, watcher, stars of that repository.
+<img width="1202" alt="screen shot 2018-05-19 at 15 01 27" src="https://user-images.githubusercontent.com/11009319/40268854-bcbcfdbe-5b75-11e8-9182-98b1545b37c1.png">
+
 
 # Code examples
 ```js
